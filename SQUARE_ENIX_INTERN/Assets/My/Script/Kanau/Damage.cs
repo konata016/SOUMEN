@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// そうめんが箸に当たった時の処理
+/// そうめんが箸に当たった時のテストスクリプト
 /// </summary>
 public class Damage : MonoBehaviour
 {
@@ -32,6 +32,7 @@ public class Damage : MonoBehaviour
     {
         if (col.tag == "Player")
         {
+            //
             col.GetComponent<SoumenStatus>().Damaged(transform.position);
         }
     }

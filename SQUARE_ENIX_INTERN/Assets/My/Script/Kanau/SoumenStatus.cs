@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// そうめんのHPを減らすスクリプト。
+/// そうめんのHPを減らすためのテストスクリプト
 /// </summary>
 public class SoumenStatus : MonoBehaviour
 {
