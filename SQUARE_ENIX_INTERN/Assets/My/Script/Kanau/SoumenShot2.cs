@@ -61,7 +61,7 @@ public class SoumenShot2 : MonoBehaviour
                     waitTime = 0;
                     Debug.Log("shot : " + shotNum);
 
-                    while()
+                    //while () { }/
 
                     humanList.RemoveAt(humanList.Count - 1);
                 }
