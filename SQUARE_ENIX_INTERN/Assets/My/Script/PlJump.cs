@@ -9,10 +9,15 @@ public class PlJump : MonoBehaviour
     Vector3 tmpPos;
     PlMove.PlayerParameter plParam;
 
+    SoumenStatus status;
+    SoumenShot shot;
+
     // Start is called before the first frame update
     void Start()
     {
         startPos = transform.localPosition;
+        shot = GetComponent<SoumenShot>();
+        status = GetComponent<SoumenStatus>();
     }
 
     // Update is called once per frame
@@ -59,10 +64,16 @@ public class PlJump : MonoBehaviour
 
                 isJumpEnd = false;
                 plParam.isJump = false;
+                Time.timeScale = 1f;
             }
             else
             {
                 plParam.isJump = true;
+
+                shot.SearchHuman();
+                SoumenShot.jumpTrigger = true;
+                Debug.Log("Jump!");
+                Time.timeScale = 0.2f;
             }
             PlMove.plParam.isJump = plParam.isJump;
         }

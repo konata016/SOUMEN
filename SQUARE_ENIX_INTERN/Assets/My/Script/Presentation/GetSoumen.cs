@@ -20,7 +20,7 @@ public class GetSoumen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Soumen")
+        if (other.gameObject.tag == "Human")
         {
             onSoumen = true;
         }

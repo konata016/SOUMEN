@@ -5,14 +5,14 @@ using UnityEngine;
 public class HookShot : MonoBehaviour
 {
     float timer;
-    public static bool isTrigger { get; set; }
+    public bool isTrigger = false;
     public float speed;
     public GameObject target;
 
     // Start is called before the first frame update
     void Start()
     {
-        isTrigger = true;
+        //isTrigger = true;
     }
 
     // Update is called once per frame
@@ -24,19 +24,20 @@ public class HookShot : MonoBehaviour
 
         if (isTrigger)
         {
+            transform.LookAt(target.transform);
 
             if (!GetSoumen.onSoumen)
             {
                 timer = Time.fixedTime * Time.fixedTime * speed;
-                siz.x += timer;
+                siz.z += timer;
             }
             else
             {
-                siz.x -= timer;
+                siz.z -= timer;
                 timer = Time.fixedTime * Time.fixedTime * speed;
-                if (siz.x < 0)
+                if (siz.z < 0)
                 {
-                    siz.x = 1;
+                    siz.z = 1;
                     isTrigger = false;
                 }
             }

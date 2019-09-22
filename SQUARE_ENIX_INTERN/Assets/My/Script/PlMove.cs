@@ -32,7 +32,7 @@ public class PlMove : MonoBehaviour
         Parameter(Time.deltaTime);
 
         var roll = transform.rotation.eulerAngles;
-        Debug.Log(roll.z);
+        //Debug.Log(roll.z);
 
         //回転
         if (!plParam.isJump)

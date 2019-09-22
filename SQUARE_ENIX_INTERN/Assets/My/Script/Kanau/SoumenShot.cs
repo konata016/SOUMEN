@@ -7,27 +7,30 @@ public class SoumenShot : MonoBehaviour
     /* --- 定数 --- */
 
     /* public変数*/
-    public bool jumpTrigger = false;
+    public static bool jumpTrigger { get; set; }
+    public Camera camera;
 
     /* --- SerializeFieldの変数 --- */
     [SerializeField] private float triggerValue;        //そうめんを撃つ角度変化のボーダー
-    [SerializeField] private float coolDown = 0.5f;     //そうめんを撃つ判定のクールダウンの設定値
-
+    [SerializeField] private float coolDown = 0;     //そうめんを撃つ判定のクールダウンの設定値
+    [SerializeField] private GameObject soumenAmo;
 
     /* --- 変数 ---*/
 
     /* --- private変数 --- */
     private int shotNum = 0;        //デバッグ用。そうめんを撃つことができると1ずつ増える。
     private float waitTime = 0;     //そうめんを撃つクールダウンを待っている時間
-    private bool jumpingTrigger = false;
 
     private List<GameObject> humanList = new List<GameObject>();    //ジャンプした時に近くの人間をリストに格納する
     private SoumenStatus soumenStatus;  //そうめんのステータスを管理するスクリプト
+    private HookShot hookShot;
 
     // Start is called before the first frame update
     void Start()
     {
+        camera = Camera.main;
         soumenStatus = GetComponent<SoumenStatus>();
+        hookShot = soumenAmo.GetComponent<HookShot>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class SoumenShot : MonoBehaviour
             SearchHuman();
         }
 
+
         if (waitTime < coolDown)
         {
             waitTime += Time.deltaTime;
@@ -49,13 +53,19 @@ public class SoumenShot : MonoBehaviour
         {
             if (humanList.Count > 0)
             {
-                this.transform.LookAt(humanList[humanList.Count - 1].transform);
+                camera.transform.LookAt(humanList[humanList.Count - 1].transform);
 
-                if (MyJoyCon.joyconDec.gyro.y < triggerValue && waitTime >= coolDown)
+                if ((MyJoyCon.joyconDec.accel.y < triggerValue ||
+                    MyJoyCon.joyconDec.accel.x < triggerValue ||
+                    MyJoyCon.joyconDec.accel.z < triggerValue)
+                    && waitTime >= coolDown)
                 {
                     shotNum++;
                     waitTime = 0;
                     Debug.Log("shot : " + shotNum);
+
+                    hookShot.target = humanList[humanList.Count - 1];
+                    hookShot.isTrigger = true;
 
                     humanList.RemoveAt(humanList.Count - 1);
                 }
@@ -68,7 +78,7 @@ public class SoumenShot : MonoBehaviour
     /// <summary>
     /// そうめんから一定距離の人間をリストに格納するメソッド。近くにいるの要素数を返す。
     /// </summary>
-    void SearchHuman()
+    public void SearchHuman()
     {
         //タグ指定されたオブジェクトを配列で取得する
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Human"))
