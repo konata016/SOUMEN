@@ -7,13 +7,15 @@ using System;
 public class PlMove : MonoBehaviour
 {
     public float speed = 20;
-    public float high = 100;
+    public float high = 3;
+    public float jumpPower = 5;
 
     public struct PlayerParameter
     {
         public float speed;
         public bool isJump;
         public float high;
+        public float jumpPower;
     }
     public static PlayerParameter plParam = new PlayerParameter();
 
@@ -21,6 +23,7 @@ public class PlMove : MonoBehaviour
     void Start()
     {
         plParam.high = high;
+        plParam.jumpPower = jumpPower;
     }
 
     // Update is called once per frame
@@ -32,14 +35,10 @@ public class PlMove : MonoBehaviour
         Debug.Log(roll.z);
 
         //回転
-        if (roll.z < 90 || roll.z > 270)
+        if (!plParam.isJump)
         {
             //roll.z += speed * MyJoyCon.joyconDec.accel.y;
             roll.z += plParam.speed * DebugMode();
-        }
-        else
-        {
-            plParam.isJump = true;
         }
         
 
