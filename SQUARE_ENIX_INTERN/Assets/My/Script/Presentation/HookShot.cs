@@ -24,19 +24,26 @@ public class HookShot : MonoBehaviour
 
         if (isTrigger)
         {
+            transform.LookAt(target.transform);
 
             if (!GetSoumen.onSoumen)
             {
+                //フックを伸ばす
                 timer = Time.fixedTime * Time.fixedTime * speed;
-                siz.x += timer;
+                siz.z += timer;
             }
             else
             {
-                siz.x -= timer;
+                //フックを縮める
+                siz.z -= timer;
                 timer = Time.fixedTime * Time.fixedTime * speed;
-                if (siz.x < 0)
+
+                //サイズが1以下になった場合1地に1に戻す
+                if (siz.z < 1)
                 {
-                    siz.x = 1;
+                    siz.z = 1;
+
+                    //
                     isTrigger = false;
                 }
             }

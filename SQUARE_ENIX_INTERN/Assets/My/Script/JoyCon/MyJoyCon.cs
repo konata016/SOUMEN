@@ -6,6 +6,9 @@ using System;
 
 public class MyJoyCon : MonoBehaviour
 {
+    float timer;
+
+
     private static readonly Joycon.Button[] m_buttons =
          Enum.GetValues(typeof(Joycon.Button)) as Joycon.Button[];
 
@@ -24,6 +27,8 @@ public class MyJoyCon : MonoBehaviour
         public Vector3 accel;
         public Quaternion orientation;
 
+        public float shuffleGage;
+
     }
     public static JoyConDec joyconDec = new JoyConDec();
 
@@ -41,17 +46,30 @@ public class MyJoyCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += 0.1f * Time.deltaTime;
+
         SetJoyCon();
+        JoyConAction(timer);
     }
 
     void SetJoyCon()
     {
-        //後できれいにする
+        //
         joyconDec.isLeft = m_joycons[1].isLeft;
         joyconDec.stick = m_joycons[1].GetStick();
         joyconDec.gyro = m_joycons[1].GetGyro();
         joyconDec.accel = m_joycons[1].GetAccel();
         joyconDec.orientation = m_joycons[1].GetVector();
+    }
+
+    void JoyConAction(float timer)
+    {
+        joyconDec.shuffleGage += joyconDec.gyro.x + joyconDec.gyro.y + joyconDec.gyro.z;
+        if (timer < 0.01f)
+        {
+            joyconDec.shuffleGage = 0;
+            timer = 0;
+        }
     }
 
     

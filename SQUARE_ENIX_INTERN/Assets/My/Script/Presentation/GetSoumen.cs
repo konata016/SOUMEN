@@ -20,6 +20,7 @@ public class GetSoumen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //素麺に触れた場合フラグを立てる
         if (other.gameObject.tag == "Soumen")
         {
             onSoumen = true;

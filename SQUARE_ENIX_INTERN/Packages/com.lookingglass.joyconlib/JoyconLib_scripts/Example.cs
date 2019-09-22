@@ -74,11 +74,11 @@ public class Example : MonoBehaviour
             return;
         }
 
-        if (!m_joycons.Any(c => !c.isLeft))
-        {
-            GUILayout.Label("Joy-Con (R) が接続されていません");
-            return;
-        }
+        //if (!m_joycons.Any(c => !c.isLeft))
+        //{
+        //    GUILayout.Label("Joy-Con (R) が接続されていません");
+        //    return;
+        //}
 
         GUILayout.BeginHorizontal(GUILayout.Width(960));
 
