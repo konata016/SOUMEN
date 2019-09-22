@@ -102,6 +102,7 @@ public class Example : MonoBehaviour
             GUILayout.Label("加速度：" + accel);
             GUILayout.Label("傾き：" + orientation.eulerAngles);
             GUILayout.EndVertical();
+            
         }
 
         GUILayout.EndHorizontal();

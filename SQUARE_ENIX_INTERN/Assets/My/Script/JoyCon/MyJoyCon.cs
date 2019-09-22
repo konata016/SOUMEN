@@ -46,10 +46,19 @@ public class MyJoyCon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += 0.1f * Time.deltaTime;
+        
 
         SetJoyCon();
         JoyConAction(timer);
+
+        timer += 0.1f * Time.deltaTime;
+        joyconDec.shuffleGage += m_joycons[1].GetGyro().x + m_joycons[1].GetGyro().y + m_joycons[1].GetGyro().z;
+        if (timer < 0.01f)
+        {
+            //joyconDec.shuffleGage = 0;
+            timer = 0;
+        }
+        Debug.Log(joyconDec.shuffleGage);
     }
 
     void SetJoyCon()
@@ -64,12 +73,7 @@ public class MyJoyCon : MonoBehaviour
 
     void JoyConAction(float timer)
     {
-        joyconDec.shuffleGage += joyconDec.gyro.x + joyconDec.gyro.y + joyconDec.gyro.z;
-        if (timer < 0.01f)
-        {
-            joyconDec.shuffleGage = 0;
-            timer = 0;
-        }
+
     }
 
     
