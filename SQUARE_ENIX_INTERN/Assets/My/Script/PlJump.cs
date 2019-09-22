@@ -9,11 +9,16 @@ public class PlJump : MonoBehaviour
     Vector3 tmpPos;
     PlMove.PlayerParameter plParam;
 
+    SoumenStatus status;
+    SoumenShot shot;
+
     // Start is called before the first frame update
     void Start()
     {
         //スタートの座標を記録
         startPos = transform.localPosition;
+        shot = GetComponent<SoumenShot>();
+        status = GetComponent<SoumenStatus>();
     }
 
     // Update is called once per frame
@@ -70,6 +75,7 @@ public class PlJump : MonoBehaviour
                 JumpBloc.landing = true;
 
                 plParam.isJump = false;
+                Time.timeScale = 1f;
             }
             else
             {
