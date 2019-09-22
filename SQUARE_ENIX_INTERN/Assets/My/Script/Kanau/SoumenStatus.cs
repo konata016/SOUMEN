@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// そうめんのHPを減らすためのテストスクリプト
+/// そうめんのステータスを管理するテストスクリプト
 /// </summary>
 public class SoumenStatus : MonoBehaviour
 {
@@ -11,10 +11,11 @@ public class SoumenStatus : MonoBehaviour
 
     /* public変数*/
     public int HP = 100;                    //そうめんの本数
+    public float shotRange;              //そうめんを撃てる距離
 
     /* --- SerializeFieldの変数 --- */
     [SerializeField] private int damage = 100;      //そうめん中心部に当たった時の減る本数
-    [SerializeField] private int[] volumeLevel;       //大きさが変わる本数の段階
+    [SerializeField] private int[] volumeLevel;     //大きさが変わる本数の段階
 
     /* --- 変数 ---*/
 
