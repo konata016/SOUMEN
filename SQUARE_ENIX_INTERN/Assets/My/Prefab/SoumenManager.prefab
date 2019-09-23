@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualize: 0
-  stretchingScale: 4
+  stretchingScale: 0
   stiffness: 1
   slack: 0
   batches:
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0ff3a4f8c74454aada3576e59653fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solver: {fileID: 0}
+  solver: {fileID: 4215539783902488715, guid: b637b2588cb57304595e98314eb23ad3, type: 3}
   collisionMaterial: {fileID: 11400000, guid: b16966e401400e54bb16b1b4bb23c807, type: 2}
   selfCollisions: 0
   active: 010101010101010101010101010101010101010101010101010101010100000000000000000000
@@ -733,7 +733,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f480461aaaad48049ab7f93ec833dc60, type: 2}
+  - {fileID: 2100000, guid: eefd46ae55ddbb948b1f4cd747c96586, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
