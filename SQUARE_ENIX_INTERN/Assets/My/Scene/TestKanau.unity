@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 52736608}
   - component: {fileID: 52736607}
   - component: {fileID: 52736606}
+  - component: {fileID: 52736609}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -170,6 +171,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52736609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52736605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f9a561e8e78a647abc7a2abf611370, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageObj: {fileID: 4471069444097820664, guid: bf90b99b6db1c46c78d26a1d0bc8d834,
+    type: 3}
+  speed: 5
 --- !u!1 &182120297
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +387,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383450169}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -750,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAxis: {fileID: 440348456}
   player: {fileID: 383450169}
+  isJumpDown: 1
 --- !u!1 &1054826547
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAxis: {fileID: 440348456}
   player: {fileID: 383450169}
+  isJumpDown: 0
 --- !u!1 &1078373851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1052,7 @@ GameObject:
   - component: {fileID: 1360962412}
   - component: {fileID: 1360962410}
   - component: {fileID: 1360962409}
+  - component: {fileID: 1360962413}
   m_Layer: 0
   m_Name: PlayerStatusManager
   m_TagString: Untagged
@@ -1070,7 +1089,9 @@ MonoBehaviour:
   HP: 100
   shotRange: 100
   speed: 3
-  jumpHeight: 5
+  dashSpeed: 5
+  jumpHeight: 3
+  dashJump: 0
   jumpSpeed: 5
   player: {fileID: 383450169}
   damage: 100
@@ -1185,6 +1206,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1360962413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360962408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259ef29a18b6d6f4cb25c02388c0579b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1520459563
 GameObject:
   m_ObjectHideFlags: 0

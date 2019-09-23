@@ -42,8 +42,9 @@ public class PlDash : MonoBehaviour
         timer += 0.1f * Time.deltaTime;
 
         //joyCon入力時
-        if (MyJoyCon.joyconDec.button==Joycon.Button.SHOULDER_1)
+        if (MyJoyCon.joyconDec.button == Joycon.Button.SHOULDER_2)
         {
+            Debug.Log("change speed");
             onDashTrigger = true;
         }
 
@@ -66,8 +67,8 @@ public class PlDash : MonoBehaviour
             onDashTrigger = false;
         }
 
-        plManag.dashSpeed = plSpeed;
-        plManag.dashJump = plJumpHigh;
+        plManag.speed = plSpeed;
+        plManag.jumpHeight = plJumpHigh;
     }
 
 }
