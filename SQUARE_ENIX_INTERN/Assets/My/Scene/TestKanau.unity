@@ -445,8 +445,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 440348459}
-  - component: {fileID: 440348458}
   - component: {fileID: 440348457}
+  - component: {fileID: 440348458}
   m_Layer: 0
   m_Name: PlayerAxis
   m_TagString: Untagged
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 440348456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b72dc6c375145ff42b2c2c340b773195, type: 3}
+  m_Script: {fileID: 11500000, guid: b98c4a24c0c8345a1aa37f67050bf1bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   landing: 0
