@@ -9,10 +9,13 @@ using System;
 /// </summary>
 public class PlMove : MonoBehaviour
 {
+    /* 定数 */
+    private const float unableControlTime = 1f;   //着時した時に操作が制限される時間
+
     /* public変数*/
-    //public bool onLeft;      //左の縁に着地した瞬間
-    //public bool onRight;     //右の縁に着地した瞬間 
     public bool landing;     //縁に着地した瞬間
+    public bool isLandLeft = false;    //着地後に反対側に操作ができない
+    public bool isLandRight = false;    //着地後に反対側に操作ができない
 
     /* --- SerializeFieldの変数 --- */
     [SerializeField] GameObject playerManageObj;
@@ -27,6 +30,8 @@ public class PlMove : MonoBehaviour
     private PlayerController playerController;
     private PlayerManager playerManager;
     private float jumpCoolCount;
+
+    private float landWaitTime;          //着時後経過した時間
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +48,35 @@ public class PlMove : MonoBehaviour
         //回転
         if (!playerController.isJump)
         {
-            roll.z += playerManager.speed * MyJoyCon.joyconDec.accel.y;
-            //roll.z += playerManager.speed * DebugMode();
+            if (isLandLeft)
+            {
+                if (landWaitTime < unableControlTime)
+                {
+                    roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, 10, 180);
+                }
+                else
+                {
+                    isLandLeft = false;
+                    landWaitTime = 0;
+                }
+            }
+            else if (isLandRight)
+            {
+                if (landWaitTime < unableControlTime)
+                {
+                    roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, -180, -10);
+                }
+                else
+                {
+
+                    isLandRight = false;
+                    landWaitTime = 0;
+                }
+            }
+            else
+            {
+                roll.z += playerManager.speed * MyJoyCon.joyconDec.accel.y;
+            }
         }
         
         transform.rotation = Quaternion.Euler(roll);

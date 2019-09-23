@@ -50,7 +50,7 @@ public class MyJoyCon : MonoBehaviour
         {
             deviceNum = 1;
         }
-            
+
     }
 
     // Update is called once per frame

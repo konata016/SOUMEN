@@ -27,12 +27,14 @@ public class Title2UI : MonoBehaviour
     void Update()
     {
         //遷移する際に押してもらうボタン。
-        if (MyJoyCon.joyconDec.button == Joycon.Button.DPAD_DOWN)
+        if (MyJoyCon.joyconDec.button != null)
         {
+            Debug.Log("Transition");
+
             //効果音が終わるまで待つ。
             StartCoroutine("waitForSound", audioSource.clip.length);
 
-            SceneManager.LoadScene("HowToSoumen");
+            SceneManager.LoadScene(1);
         }
     }
 

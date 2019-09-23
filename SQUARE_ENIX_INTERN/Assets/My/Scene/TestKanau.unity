@@ -483,6 +483,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   landing: 0
+  isLandLeft: 0
+  isLandRight: 0
   playerManageObj: {fileID: 1360962408}
   player: {fileID: 383450169}
   slide: 3
@@ -654,6 +656,7 @@ GameObject:
   - component: {fileID: 1033987721}
   - component: {fileID: 1033987720}
   - component: {fileID: 1033987719}
+  - component: {fileID: 1033987722}
   m_Layer: 0
   m_Name: LeftJumpObj
   m_TagString: LeftJumpObj
@@ -733,6 +736,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033987717}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1033987722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033987717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e6da1d1aa1a4df5b7645f64e299891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAxis: {fileID: 440348456}
+  player: {fileID: 383450169}
 --- !u!1 &1054826547
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,6 +831,7 @@ GameObject:
   - component: {fileID: 1056743066}
   - component: {fileID: 1056743065}
   - component: {fileID: 1056743064}
+  - component: {fileID: 1056743067}
   m_Layer: 0
   m_Name: RightJumpObj
   m_TagString: RightJumpObj
@@ -893,6 +911,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056743062}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1056743067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056743062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e6da1d1aa1a4df5b7645f64e299891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAxis: {fileID: 440348456}
+  player: {fileID: 383450169}
 --- !u!1 &1078373851
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,13 +75,4 @@ public class JumpBlock : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(axisRotate);
     }
-
-    //そうめんがコライダからでたらexitFlagをtrueにすることで、完全に出るまでスライドさせる。
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            exitFlag = true;
-        }
-    }
 }

@@ -8,8 +8,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     /* public変数*/
-    public bool isJump;
-    public bool isJumpDown;         //ジャンプ時に上昇しているか落下しているか
+    public bool isJump = false;             //ジャンプ中華
+    public bool isJumpDown = false;         //ジャンプ時に上昇しているか落下しているか
 
     /* --- SerializeFieldの変数 --- */
     [SerializeField] Camera camera;
