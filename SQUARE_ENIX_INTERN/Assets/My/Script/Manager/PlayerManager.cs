@@ -72,6 +72,7 @@ public class PlayerManager : MonoBehaviour
         }
 
         //この後にchangeIdxを使用し、そうめんの大きさを変更する処理を記述
+
     }
 
     /// <summary>
@@ -93,5 +94,6 @@ public class PlayerManager : MonoBehaviour
         }
 
         //この後にchangeIdxを使用し、そうめんの大きさを変更する処理を記述
+
     }
 }

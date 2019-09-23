@@ -26,7 +26,7 @@ public class Title2UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //遷移する際に押してもらうボタン。現状何故か動きません。
+        //遷移する際に押してもらうボタン。
         if (MyJoyCon.joyconDec.button == Joycon.Button.DPAD_DOWN)
         {
             //効果音が終わるまで待つ。
