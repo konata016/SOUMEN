@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //フックショットのオブジェクトを表示
+        HookShotActive();
+
+
         jump();
         shot();
     }
@@ -181,6 +185,19 @@ public class PlayerController : MonoBehaviour
                     humanList.RemoveAt(humanList.Count - 1);
                 }
             }
+        }
+    }
+
+    void HookShotActive()
+    {
+        //非表示の式を書く
+        if (hookShot.trigger)
+        {
+            attackSoumen.SetActive(true);
+        }
+        else
+        {
+            attackSoumen.SetActive(false);
         }
     }
 }

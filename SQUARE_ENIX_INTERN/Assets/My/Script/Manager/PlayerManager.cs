@@ -33,12 +33,11 @@ public class PlayerManager : MonoBehaviour
 
     /* --- private変数 --- */
     private int currentLevel = 0;
-
+    private HookShot hookShot;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
