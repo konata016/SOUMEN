@@ -80,6 +80,7 @@
 
 
 					half2 grabUV = (IN.screenPos.xy / IN.screenPos.w) * float2(1, -1) + float2(0, 1);
+					grabUV.y = grabUV.y * -1 + 1;
 					half3 grab = tex2D(_GrabTexture, grabUV + distortion).rgb * _Color;
 
 
