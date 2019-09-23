@@ -7,7 +7,7 @@ public class RoadDisMeter : MonoBehaviour
 {
     public Slider roadSlider;
     int stageInstantCount;
-    int plRoadPos;
+    public int plRoadPos;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class RoadDisMeter : MonoBehaviour
     void Update()
     {
         //プレイヤーの現在地
-        plRoadPos = 0;
+        //plRoadPos = 0;
 
         //バーの変更
         roadSlider.value = plRoadPos;
