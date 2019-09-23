@@ -50,7 +50,7 @@ public class MyJoyCon : MonoBehaviour
         {
             deviceNum = 1;
         }
-            
+
     }
 
     // Update is called once per frame
@@ -61,26 +61,28 @@ public class MyJoyCon : MonoBehaviour
 
         timer += 0.1f * Time.deltaTime;
 
+        foreach (var button in m_buttons)
+        {
+            if (m_joyconL.GetButton(button))
+            {
+                m_pressedButtonL = button;
+            }
+            if (m_joyconR.GetButton(button))
+            {
+                m_pressedButtonR = button;
+            }
+        }
+
         SetJoyCon();
         JoyConAction();
 
-        
-            if (m_joyconL.GetButton(m_buttons[deviceNum]))
-            {
-                m_pressedButtonL = m_buttons[deviceNum];
-            }
-            if (m_joyconR.GetButton(m_buttons[deviceNum]))
-            {
-                m_pressedButtonR = m_buttons[deviceNum];
-            }
-
-        Debug.Log(joyconDec.shuffleGage);
+        Debug.Log(joyconDec.button);
     }
 
     void SetJoyCon()
     {
         joyconDec.isLeft = m_joycons[deviceNum].isLeft;
-        joyconDec.button= joyconDec.isLeft ? m_pressedButtonL : m_pressedButtonR;
+        joyconDec.button = joyconDec.isLeft ? m_pressedButtonL : m_pressedButtonR;
         joyconDec.stick = m_joycons[deviceNum].GetStick();
         joyconDec.gyro = m_joycons[deviceNum].GetGyro();
         joyconDec.accel = m_joycons[deviceNum].GetAccel();
