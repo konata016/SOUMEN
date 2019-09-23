@@ -8,6 +8,8 @@ TagManager:
   - Human
   - LeftJumpObj
   - RightJumpObj
+  - Soumen
+  - Hasi
   layers:
   - Default
   - TransparentFX

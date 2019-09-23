@@ -16,15 +16,19 @@ public class PlDash : MonoBehaviour
 
     float timer;
 
+    PlayerManager plManag;
+
     // Start is called before the first frame update
     void Start()
     {
+        plManag = GetComponent<PlayerManager>();
+
         //初期値セット用
-        normalSpeed = 3;
-        normalJumpHigh = 1;
-        dashSpeed = 5;
-        dashJumpHigh = 3;
-        onDashTrigger = true;
+        normalSpeed = plManag.speed;
+        normalJumpHigh = plManag.dashJump;
+        dashSpeed = plManag.dashSpeed;
+        dashJumpHigh = plManag.dashSpeed;
+        onDashTrigger = false;
 
         //
         plSpeed = normalSpeed;
@@ -36,6 +40,12 @@ public class PlDash : MonoBehaviour
     void Update()
     {
         timer += 0.1f * Time.deltaTime;
+
+        //joyCon入力時
+        if (MyJoyCon.joyconDec.button==Joycon.Button.SHOULDER_1)
+        {
+            onDashTrigger = true;
+        }
 
         //ダッシュした場合速度を変える
         if (onDashTrigger)
@@ -55,15 +65,9 @@ public class PlDash : MonoBehaviour
             plJumpHigh = normalSpeed;
             onDashTrigger = false;
         }
+
+        plManag.dashSpeed = plSpeed;
+        plManag.dashJump = plJumpHigh;
     }
 
-    //受け渡し用
-    public float JumpHigh()
-    {
-        return plJumpHigh;
-    }
-    public float Speed()
-    {
-        return plSpeed;
-    }
 }

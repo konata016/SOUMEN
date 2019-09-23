@@ -17,8 +17,10 @@ public class PlayerManager : MonoBehaviour
 	public int HP;                      //そうめんの本数
 	public float shotRange;             //そうめんを撃てる距離
 	public float speed;                 //そうめんの速さ
+    public float dashSpeed;             //ダッシュした時のそうめんの速さ
 	public float jumpHeight;            //ジャンプの高さ
-	public float jumpSpeed;             //ジャンプの速さ
+    public float dashJump;              //ダッシュした時のそうめんの高さ
+    public float jumpSpeed;             //ジャンプの速さ
 
 	//public struct PlayerParameter playerParameter = new PlayerParameter();                //プレイヤーのステータスを管理する構造体
 
