@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject player;
+    /* public変数*/
+
+    /* --- SerializeFieldの変数 --- */
+    [SerializeField] private GameObject player;     //プレイヤーのゲームオブジェクト
+    [SerializeField] new Vector3 defaultCameraAngle;
+
+    /* --- 変数 ---*/
+
+    /* --- private変数 --- */
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +24,10 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z - 3);
+    }
+
+    public void setDefaultRotate()
+    {
+        transform.rotation = Quaternion.Euler(defaultCameraAngle);
     }
 }

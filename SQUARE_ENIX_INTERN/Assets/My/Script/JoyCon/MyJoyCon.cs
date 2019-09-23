@@ -63,12 +63,12 @@ public class MyJoyCon : MonoBehaviour
 
     void SetJoyCon()
     {
-        //
-        joyconDec.isLeft = m_joycons[1].isLeft;
-        joyconDec.stick = m_joycons[1].GetStick();
-        joyconDec.gyro = m_joycons[1].GetGyro();
-        joyconDec.accel = m_joycons[1].GetAccel();
-        joyconDec.orientation = m_joycons[1].GetVector();
+        Debug.Log(m_joycons.Count);
+        joyconDec.isLeft = m_joycons[0].isLeft;
+        joyconDec.stick = m_joycons[0].GetStick();
+        joyconDec.gyro = m_joycons[0].GetGyro();
+        joyconDec.accel = m_joycons[0].GetAccel();
+        joyconDec.orientation = m_joycons[0].GetVector();
     }
 
     void JoyConAction(float timer)

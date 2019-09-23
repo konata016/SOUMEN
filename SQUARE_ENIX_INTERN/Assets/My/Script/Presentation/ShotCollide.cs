@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GetSoumen : MonoBehaviour
+public class ShotCollide : MonoBehaviour
 {
-    public static bool onSoumen; 
+    public bool isCollide; 
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +20,10 @@ public class GetSoumen : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //素麺に触れた場合フラグを立てる
-        if (other.gameObject.tag == "Soumen")
+        //伸ばしたそうめんがターゲットに当たったら
+        if (other.gameObject.tag == "Human")
         {
-            onSoumen = true;
+            isCollide = true;
         }
     }
 }
