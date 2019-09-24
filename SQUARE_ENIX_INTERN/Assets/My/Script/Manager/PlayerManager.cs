@@ -15,7 +15,7 @@ public class PlayerManager : MonoBehaviour
 	}*/
 
 	/* public変数*/
-	public int HP;                      //そうめんの本数
+	public static int HP;                      //そうめんの本数
 	public float shotRange;             //そうめんを撃てる距離
 	public float speed;                 //そうめんの速さ
     public float dashSpeed;             //ダッシュした時のそうめんの速さ
@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HP = 0;
     }
 
     // Update is called once per frame

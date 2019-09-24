@@ -13,7 +13,11 @@ public class StageScroll : MonoBehaviour
     public float gamePlayTime;
     public float currentTime = 0;
 
+    public int plPosCount;
+    public int goalPosCount;
+
     private bool goalFrag = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -54,18 +58,27 @@ public class StageScroll : MonoBehaviour
                 {
                     stages.Add(Instantiate(goalStagePart, new Vector3(0, 0, (stages.Count - 2) * 100), new Quaternion()));
                     goalFrag = false;
-                    currentTime = 0;
+
+
+
+                    //currentTime = 0;
                 }
 
                 //ステージの廃棄
                 stages.RemoveAt(0);
                 Destroy(tmpObj);
+                plPosCount++;
             }
         }
 
-        if (currentTime > gamePlayTime)
+        if (8 + plPosCount > goalPosCount)
         {
             goalFrag = true;
         }
+
+        //if (currentTime > gamePlayTime)
+        //{
+        //    goalFrag = true;
+        //}
     }
 }

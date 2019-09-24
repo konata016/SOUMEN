@@ -35,7 +35,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         //初期値
-        soumenCount = score;
+        soumenCount = PlayerManager.HP;
 
         //
         rank.ryou = maxSoumenCount / 3;
