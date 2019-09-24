@@ -76,7 +76,7 @@ public class MyJoyCon : MonoBehaviour
         SetJoyCon();
         JoyConAction();
 
-        Debug.Log(joyconDec.button);
+        //Debug.Log(joyconDec.button);
     }
 
     void SetJoyCon()

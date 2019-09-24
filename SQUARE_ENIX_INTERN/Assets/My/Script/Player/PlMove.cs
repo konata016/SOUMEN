@@ -46,36 +46,39 @@ public class PlMove : MonoBehaviour
         var roll = transform.rotation.eulerAngles;
 
         //回転
-        if (!playerController.isJump)
+        if (!LBloc.on && !RBloc.on)
         {
-            if (isLandLeft)
+            if (!playerController.isJump)
             {
-                if (landWaitTime < unableControlTime)
+                if (isLandLeft)
                 {
-                    roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, 10, 180);
+                    if (landWaitTime < unableControlTime)
+                    {
+                        roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, 10, 180);
+                    }
+                    else
+                    {
+                        isLandLeft = false;
+                        landWaitTime = 0;
+                    }
                 }
-                else
+                else if (isLandRight)
                 {
-                    isLandLeft = false;
-                    landWaitTime = 0;
-                }
-            }
-            else if (isLandRight)
-            {
-                if (landWaitTime < unableControlTime)
-                {
-                    roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, -180, -10);
-                }
-                else
-                {
+                    if (landWaitTime < unableControlTime)
+                    {
+                        roll.z += Mathf.Clamp(playerManager.speed * MyJoyCon.joyconDec.accel.y, -180, -10);
+                    }
+                    else
+                    {
 
-                    isLandRight = false;
-                    landWaitTime = 0;
+                        isLandRight = false;
+                        landWaitTime = 0;
+                    }
                 }
-            }
-            else
-            {
-                roll.z += playerManager.speed * MyJoyCon.joyconDec.accel.y;
+                else
+                {
+                    roll.z += playerManager.speed * MyJoyCon.joyconDec.accel.y;
+                }
             }
         }
         

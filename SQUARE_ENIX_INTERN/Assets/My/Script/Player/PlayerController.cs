@@ -193,11 +193,11 @@ public class PlayerController : MonoBehaviour
         //非表示の式を書く
         if (hookShot.trigger)
         {
-            attackSoumen.SetActive(true);
+            //attackSoumen.SetActive(true);
         }
         else
         {
-            attackSoumen.SetActive(false);
+            //attackSoumen.SetActive(false);
         }
     }
 }
