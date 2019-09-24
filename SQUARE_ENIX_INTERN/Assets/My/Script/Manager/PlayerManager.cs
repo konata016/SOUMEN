@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -70,6 +71,13 @@ public class PlayerManager : MonoBehaviour
                 changeIdx = i;
                 break;
             }
+        }
+
+        Debug.Log(HP);
+
+        if (HP <= 0)
+        {
+            SceneManager.LoadScene("Result");
         }
 
         //この後にchangeIdxを使用し、そうめんの大きさを変更する処理を記述

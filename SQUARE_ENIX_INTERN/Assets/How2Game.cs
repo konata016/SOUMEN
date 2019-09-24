@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// タイトルシーンから操作方法シーンへの遷移
 /// </summary>
-public class Title2UI : MonoBehaviour
+public class How2Game : MonoBehaviour
 {
     /* public変数*/
 
@@ -30,11 +30,11 @@ public class Title2UI : MonoBehaviour
         if (MyJoyCon.joyconDec.button != null || Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Transition");
-
+             
             //効果音が終わるまで待つ。
             //StartCoroutine("waitForSound", audioSource.clip.length);
 
-            SceneManager.LoadScene("HowToSoumen");
+            SceneManager.LoadScene("GameSceneTest");
         }
     }
 

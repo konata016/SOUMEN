@@ -179,11 +179,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2197384365582791298}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0.5, y: 0, z: 0}
 --- !u!114 &2197384365582791296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +255,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.0114721395
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.000000033760443
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.05067655
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.013159566
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.0016874266
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.053221945
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 369cd30af5f5f4922a1eefed13690985, type: 3}
+      propertyPath: m_DirtyAABB
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

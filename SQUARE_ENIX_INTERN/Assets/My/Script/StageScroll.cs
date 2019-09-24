@@ -8,6 +8,13 @@ public class StageScroll : MonoBehaviour
     public GameObject stageObj;
     public float speed = 5;
 
+    public GameObject goalStagePart;
+
+    public float gamePlayTime;
+    public float currentTime = 0;
+
+    private bool goalFrag = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +28,8 @@ public class StageScroll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentTime += Time.deltaTime;
+
         //生成と廃棄を繰り返す
         foreach (GameObject stage in stages)
         {
@@ -36,12 +45,27 @@ public class StageScroll : MonoBehaviour
                 var tmpObj = stage;
 
                 //ステージ生成
-                stages.Add(Instantiate(stageObj, new Vector3(0, 0, (stages.Count - 2) * 100), new Quaternion()));
+
+                if (!goalFrag)
+                {
+                    stages.Add(Instantiate(stageObj, new Vector3(0, 0, (stages.Count - 2) * 100), new Quaternion()));
+                }
+                else
+                {
+                    stages.Add(Instantiate(goalStagePart, new Vector3(0, 0, (stages.Count - 2) * 100), new Quaternion()));
+                    goalFrag = false;
+                    currentTime = 0;
+                }
 
                 //ステージの廃棄
                 stages.RemoveAt(0);
                 Destroy(tmpObj);
             }
+        }
+
+        if (currentTime > gamePlayTime)
+        {
+            goalFrag = true;
         }
     }
 }
