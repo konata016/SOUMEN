@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
 {
     int soumenCount;
     public int maxSoumenCount;
-    RANK scoreRank;
+    public static RANK scoreRank { get; set; }
 
     public Sprite[] spriteArray = new Sprite[4];
     public GameObject imageObj;
@@ -26,7 +26,7 @@ public class Score : MonoBehaviour
     }
     Rank rank = new Rank();
 
-    enum RANK
+    public enum RANK
     {
         Huka, Ryou, Yuu, Syuu
     }
